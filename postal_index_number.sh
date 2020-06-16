@@ -3,7 +3,7 @@ shopt -s extglob
 read -p "Enter PINCODE : " pin
 checkPinCode()
 {
-	if [[ $pin =~ ^([0-9]{6})$ ]]
+	if [[ $pin =~ ^([0-9]{6}|[0-9]{3}[[:space:]][0-9]{3})$ ]]
         then
                 echo "Valid PINCODE."
         else
