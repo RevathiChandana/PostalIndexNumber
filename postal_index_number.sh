@@ -19,4 +19,13 @@ restrict_beginning()
 		checkPinCode $pin
 	fi
 }
-restrict_beginning $pin
+restrict_end()
+{
+	if [[ $pin =~ ^([0-9]{6}[a-zA-Z~!@#$%^&*_+-:<>?,./])$ ]]
+        then
+                echo "Invalid PINCODE"
+        else
+                restrict_beginning $pin
+	fi
+}
+restrict_end $pin
