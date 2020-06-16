@@ -1,9 +1,16 @@
 #!/bin/bash
 shopt -s extglob
 read -p "Enter PINCODE : " pin
-if [[ $pin =~ ^([0-9]{6})$ ]]
-then
-	echo "Valid pincode"
-else
-	echo "Invalid pincode. Please enter correct PINCODE."
-fi
+checkPinCode()
+{
+	if [[ $pin =~ ^([a-zA-Z]{1}|[~!@#$%^&*_+-:<>?,./]{1})$ ]]
+	then
+		echo "Invalid PINCODE"
+	elif [[ $pin =~ ^([0-9]{6})$ ]]
+	then
+		echo "Valid PINCODE."
+	else
+		echo "Invalid PINCODE."
+	fi
+}
+checkPinCode $pin
